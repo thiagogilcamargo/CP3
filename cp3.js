@@ -211,4 +211,8 @@ function validateForm(event) {
       form.submit();
     }
   }
+
+  // Adicionar evento de escuta ao formulário no momento do submit
+const form = document.getElementById('registration-form');
+form.addEventListener('submit', validateForm);
   
