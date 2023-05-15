@@ -48,9 +48,7 @@ body {
     background-color: #45a049;
   }
   
-  .error {
-    border-color: #ff0000;
-  }
+
   
   .error {
     border: 2px solid red;
