@@ -108,3 +108,7 @@ function validateLastName() {
       lastNameInput.classList.remove('error');
     }
   }
+
+  // Adicionar evento de escuta ao campo do segundo nome
+const lastNameInput = document.getElementById('last-name');
+lastNameInput.addEventListener('input', validateLastName);
