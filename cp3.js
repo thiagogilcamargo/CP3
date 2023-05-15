@@ -1,3 +1,17 @@
+// Obtém o elemento checkbox
+const checkbox = document.querySelector('.checkbox');
+
+// Adiciona um listener de evento para o checkbox
+checkbox.addEventListener('change', function() {
+  // Obtém o elemento body
+  const body = document.querySelector('body');
+  
+  // Alterna a classe "dark" no body para ativar/desativar o modo escuro
+  body.classList.toggle('dark');
+});
+
+
+
 // Função para validar o campo do primeiro nome
 function validateFirstName() {
     const firstNameInput = document.getElementById('first-name');
@@ -149,6 +163,9 @@ function validateForm(event) {
   if (invalidInputs.length > 0) {
     alert('Existem campos inválidos. Por favor, verifique novamente.');
   } else {
+    // Alternar para o modo noturno
+    const body = document.body;
+    body.classList.toggle('dark');
     // Submeter o formulário
     form.submit();
   }
@@ -157,6 +174,7 @@ function validateForm(event) {
   // Adicionar evento de escuta ao formulário no momento do submit
   const form = document.getElementById('registration-form');
   form.addEventListener('submit', validateForm);
+  
   
   
   

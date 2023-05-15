@@ -1,4 +1,10 @@
 /* Estilos padrão */
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+  }
 
 body {
     font-family: 'Arial', sans-serif;
@@ -7,11 +13,58 @@ body {
     background-size: cover;
     padding: 20px;
   }
+
+  .checkbox {
+    opacity: 0;
+    position: absolute;
+  }
+
+  .label {
+    background-color: #111;
+    border-radius: 50px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  
+    padding: 5px;
+    position: relative;
+    height: 26px;
+    width: 50px;
+    transform: scale(1.5);
+  
+  }
+  
+  
+  .label .ball {
+    background-color: #fff;
+    border-radius: 50%;
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    height: 22px;
+    width: 22px;
+    transform: translateX(0px);
+    transition: transform 0.2s linear;
+  }
+  
+  .checkbox:checked + .label .ball {
+    transform: translateX(24px);
+  }
+  
+  .fa-moon {
+    color: #f1c40f;
+  }
+  
+  .fa-sun {
+    color: #f39c12;
+  }
   
   h1 {
     text-align: center;
     color: #333;
     font-family: 'Nova Fonte', sans-serif;
+    margin-bottom: 20px;
   }
   
   form {
@@ -67,7 +120,7 @@ body {
   
   /* Modo noturno */
   
-  body.modo-noturno {
+  body.dark {
     font-family: 'Arial', sans-serif;
     background-image: url('https://images7.alphacoders.com/561/561443.jpg');
     background-repeat: no-repeat;
@@ -76,14 +129,15 @@ body {
   }
   
   
-  h1.modo-noturno {
+  h1.dark {
     text-align: center;
     color: whitesmoke;
     font-family: 'Nova Fonte', sans-serif;
+    margin-bottom: 20px;
   }
  
   
-  form.modo-noturno {
+  form.dark {
     max-width: 400px;
     margin: 0 auto;
     background-image: url('https://i.pinimg.com/564x/22/5d/76/225d760cb958887a51045ed69a7eabf5.jpg');
@@ -91,10 +145,10 @@ body {
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(238, 232, 232, 0.972);
   }
-  label.modo-noturno,
-  input[type="text"].modo-noturno,
-  input[type="email"].modo-noturno,
-  input[type="password"].modo-noturno {
+  label.dark ,
+  input[type="text"].dark,
+  input[type="email"].dark,
+  input[type="password"].dark {
     width: 100%;
     padding: 10px;
     border: 1px solid #0b0808;
@@ -104,20 +158,20 @@ body {
     background-color: #474545;
   }
   
-  button[type="submit"].modo-noturno {
+  button[type="submit"].dark  {
     background-color: #133d14;
     color: rgb(0, 0, 0);
   }
   
-  button[type="submit"].modo-noturno:hover {
+  button[type="submit"].dark:hover {
     background-color: #134416;
   }
   
-  .error.modo-noturno {
+  .error.dark {
     border: 2px solid red;
   }
   
-  .error.modo-noturno:focus {
+  .error.dark :focus {
     outline-color: red;
   }
   
