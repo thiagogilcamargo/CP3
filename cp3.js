@@ -60,4 +60,12 @@ function showTooltip(inputElement, errorMessage) {
     parentElement.appendChild(tooltip);
   }
   
+  // Função para remover o balão de dica
+function removeTooltip(inputElement) {
+    const parentElement = inputElement.parentNode;
+    const tooltip = parentElement.querySelector('.tooltip');
+    if (tooltip) {
+      parentElement.removeChild(tooltip);
+    }
+  }
 
