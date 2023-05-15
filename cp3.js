@@ -177,3 +177,7 @@ function validateConfirmPassword() {
       removeTooltip(confirmPasswordInput);
     }
   }
+
+  // Adicionar evento de escuta ao campo de confirmação de senha
+const confirmPasswordInput = document.getElementById('confirm-password');
+confirmPasswordInput.addEventListener('blur', validateConfirmPassword);
