@@ -1,3 +1,5 @@
+/* Estilos padrão */
+
 body {
     font-family: 'Arial', sans-serif;
     background-image: url('https://i.pinimg.com/originals/27/20/2d/27202db0746e9a95886da864f4e89b79.jpg');
@@ -5,11 +7,13 @@ body {
     background-size: cover;
     padding: 20px;
   }
+  
   h1 {
     text-align: center;
     color: #333;
     font-family: 'Nova Fonte', sans-serif;
   }
+  
   form {
     max-width: 400px;
     margin: 0 auto;
@@ -25,7 +29,7 @@ body {
     color: #333;
     font-weight: bold;
   }
-   
+  
   input[type="text"],
   input[type="email"],
   input[type="password"] {
@@ -37,7 +41,7 @@ body {
     margin-bottom: 15px;
     background-color: #eaeaea;
   }
-
+  
   button[type="submit"] {
     background-color: #4CAF50;
     color: #fff;
@@ -52,8 +56,6 @@ body {
     background-color: #45a049;
   }
   
-
-  
   .error {
     border: 2px solid red;
   }
@@ -61,4 +63,61 @@ body {
   .error:focus {
     outline-color: red;
   }
-
+  
+  
+  /* Modo noturno */
+  
+  body.modo-noturno {
+    font-family: 'Arial', sans-serif;
+    background-image: url('https://images7.alphacoders.com/561/561443.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 20px;
+  }
+  
+  
+  h1.modo-noturno {
+    text-align: center;
+    color: whitesmoke;
+    font-family: 'Nova Fonte', sans-serif;
+  }
+ 
+  
+  form.modo-noturno {
+    max-width: 400px;
+    margin: 0 auto;
+    background-image: url('https://i.pinimg.com/564x/22/5d/76/225d760cb958887a51045ed69a7eabf5.jpg');
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(238, 232, 232, 0.972);
+  }
+  label.modo-noturno,
+  input[type="text"].modo-noturno,
+  input[type="email"].modo-noturno,
+  input[type="password"].modo-noturno {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #0b0808;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-bottom: 15px;
+    background-color: #474545;
+  }
+  
+  button[type="submit"].modo-noturno {
+    background-color: #133d14;
+    color: rgb(0, 0, 0);
+  }
+  
+  button[type="submit"].modo-noturno:hover {
+    background-color: #134416;
+  }
+  
+  .error.modo-noturno {
+    border: 2px solid red;
+  }
+  
+  .error.modo-noturno:focus {
+    outline-color: red;
+  }
+  
