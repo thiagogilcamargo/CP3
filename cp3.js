@@ -153,5 +153,7 @@ function validatePassword() {
       removeTooltip(passwordInput);
     }
   }
-  
-    
+
+  // Adicionar evento de escuta ao campo de senha
+const passwordInput = document.getElementById('password');
+passwordInput.addEventListener('input', validatePassword);
