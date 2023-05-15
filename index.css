@@ -1,6 +1,6 @@
 body {
     font-family: 'Arial', sans-serif;
-    background-image: url('https://www.queroviajarmais.com/wp-content/uploads/2020/08/lago-louise.jpg');
+    background-image: url('https://i.pinimg.com/originals/27/20/2d/27202db0746e9a95886da864f4e89b79.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     padding: 20px;
@@ -13,7 +13,7 @@ body {
   form {
     max-width: 400px;
     margin: 0 auto;
-    background-color: #fff;
+    background-image: url('https://i.pinimg.com/564x/f0/53/87/f05387292a9fe50ae4b52437f5696401.jpg');
     padding: 20px;
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
@@ -23,8 +23,9 @@ body {
     display: block;
     margin-bottom: 5px;
     color: #333;
+    font-weight: bold;
   }
-  
+   
   input[type="text"],
   input[type="email"],
   input[type="password"] {
@@ -34,8 +35,9 @@ body {
     border-radius: 4px;
     box-sizing: border-box;
     margin-bottom: 15px;
+    background-color: #eaeaea;
   }
-  
+
   button[type="submit"] {
     background-color: #4CAF50;
     color: #fff;
@@ -43,6 +45,7 @@ body {
     border: none;
     border-radius: 4px;
     cursor: pointer;
+    font-weight: bold;
   }
   
   button[type="submit"]:hover {
