@@ -124,16 +124,17 @@ function validatePassword() {
   const passwordInput = document.getElementById('password');
   passwordInput.addEventListener('input', validatePassword);
 
-  // Função para validar o campo de confirmação de senha
+// Função para validar o campo de confirmação de senha
 function validateConfirmPassword() {
     const passwordInput = document.getElementById('password');
     const confirmPasswordInput = document.getElementById('confirm-password');
     const confirmPasswordValue = confirmPasswordInput.value;
   
     if (confirmPasswordValue === '') {
-      confirmPasswordInput.classList.add('error');
+      confirmPasswordInput.classList.remove('error');
     } else if (confirmPasswordValue !== passwordInput.value) {
       confirmPasswordInput.classList.add('error');
+      alert('A senha e a confirmação de senha devem ser iguais.');
     } else {
       confirmPasswordInput.classList.remove('error');
     }
@@ -141,10 +142,10 @@ function validateConfirmPassword() {
   
   // Adicionar evento de escuta ao campo de confirmação de senha
   const confirmPasswordInput = document.getElementById('confirm-password');
-  confirmPasswordInput.addEventListener('input', validateConfirmPassword);
-
+  confirmPasswordInput.addEventListener('blur', validateConfirmPassword);
+  
   // Função para validar todos os campos do formulário
-function validateForm(event) {
+  function validateForm(event) {
     event.preventDefault(); // Impede o envio do formulário se houver campos inválidos
   
     const firstNameInput = document.getElementById('first-name');
@@ -192,33 +193,25 @@ function validateForm(event) {
     // Validar o campo de confirmação de senha
     if (confirmPasswordInput.value === '' || confirmPasswordInput.value !== passwordInput.value) {
       confirmPasswordInput.classList.add('error');
+      alert('A senha e a confirmação de senha devem ser iguais.');
     } else {
       confirmPasswordInput.classList.remove('error');
     }
-  } 
- 
-  // Verificar se há campos inválidos
-  const invalidInputs = document.querySelectorAll('.error');
-
-  if (invalidInputs.length > 0) {
-    alert('Existem campos inválidos. Por favor, verifique novamente.');
-  } else {
-    // Alternar para o modo noturno
-    const body = document.body;
-    body.classList.toggle('dark');
-    // Submeter o formulário
-    form.submit();
+  
+    // Verificar se há campos inválidos novamente após a validação
+    const invalidInputs = document.querySelectorAll('.error');
+  
+    if (invalidInputs.length > 0) {
+      alert('Existem campos inválidos. Por favor, verifique novamente.');
+    } else {
+      // Alternar para o modo noturno
+      const body = document.body;
+      body.classList.toggle('dark');
+      // Submeter o formulário
+      form.submit();
+    }
   }
-
   
   // Adicionar evento de escuta ao formulário no momento do submit
   const form = document.getElementById('registration-form');
   form.addEventListener('submit', validateForm);
-  
-  
-  
-  
-  
-  
-  
-  
