@@ -134,3 +134,24 @@ function validateEmail() {
   // Adicionar evento de escuta ao campo de e-mail
 const emailInput = document.getElementById('email');
 emailInput.addEventListener('input', validateEmail)
+
+// Função para validar o campo de senha
+function validatePassword() {
+    const passwordInput = document.getElementById('password');
+    const passwordValue = passwordInput.value;
+  
+    removeTooltip(passwordInput);
+  
+    if (passwordValue === '') {
+      passwordInput.classList.add('error');
+      showTooltip(passwordInput, 'O campo de senha não pode ser vazio.');
+    } else if (passwordValue.length < 6 || passwordValue.length > 8) {
+      passwordInput.classList.add('error');
+      showTooltip(passwordInput, 'O campo de senha deve ter entre 6 e 8 caracteres.');
+    } else {
+      passwordInput.classList.remove('error');
+      removeTooltip(passwordInput);
+    }
+  }
+  
+    
