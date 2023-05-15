@@ -157,3 +157,23 @@ function validatePassword() {
   // Adicionar evento de escuta ao campo de senha
 const passwordInput = document.getElementById('password');
 passwordInput.addEventListener('input', validatePassword);
+
+// Função para validar o campo de confirmação de senha
+function validateConfirmPassword() {
+    const passwordInput = document.getElementById('password');
+    const confirmPasswordInput = document.getElementById('confirm-password');
+    const confirmPasswordValue = confirmPasswordInput.value;
+  
+    removeTooltip(confirmPasswordInput);
+  
+    if (confirmPasswordValue === '') {
+      confirmPasswordInput.classList.add('error');
+      showTooltip(confirmPasswordInput, 'O campo de confirmação de senha não pode ser vazio.');
+    } else if (confirmPasswordValue !== passwordInput.value) {
+      confirmPasswordInput.classList.add('error');
+      showTooltip(confirmPasswordInput, 'A senha e a confirmação de senha devem ser iguais.');
+    } else {
+      confirmPasswordInput.classList.remove('error');
+      removeTooltip(confirmPasswordInput);
+    }
+  }
