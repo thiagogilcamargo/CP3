@@ -90,3 +90,21 @@ function validateFirstName() {
   // Adicionar evento de escuta ao campo do primeiro nome
 const firstNameInput = document.getElementById('first-name');
 firstNameInput.addEventListener('input', validateFirstName);
+
+// Função para validar o campo do segundo nome
+function validateLastName() {
+    const lastNameInput = document.getElementById('last-name');
+    const lastNameValue = lastNameInput.value.trim();
+  
+    removeTooltip(lastNameInput);
+  
+    if (lastNameValue === '') {
+      lastNameInput.classList.add('error');
+      showTooltip(lastNameInput, 'O campo do segundo nome não pode ser vazio.');
+    } else if (lastNameValue.length < 5) {
+      lastNameInput.classList.add('error');
+      showTooltip(lastNameInput, 'O campo do segundo nome deve ter no mínimo 5 caracteres.');
+    } else {
+      lastNameInput.classList.remove('error');
+    }
+  }
