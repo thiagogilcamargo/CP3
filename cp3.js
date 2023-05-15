@@ -69,6 +69,25 @@ function validatePassword() {
   // Adicionar evento de escuta ao campo de senha
   const passwordInput = document.getElementById('password');
   passwordInput.addEventListener('input', validatePassword);
+
+  // Função para validar o campo de confirmação de senha
+function validateConfirmPassword() {
+    const passwordInput = document.getElementById('password');
+    const confirmPasswordInput = document.getElementById('confirm-password');
+    const confirmPasswordValue = confirmPasswordInput.value;
+  
+    if (confirmPasswordValue === '') {
+      confirmPasswordInput.classList.add('error');
+    } else if (confirmPasswordValue !== passwordInput.value) {
+      confirmPasswordInput.classList.add('error');
+    } else {
+      confirmPasswordInput.classList.remove('error');
+    }
+  }
+  
+  // Adicionar evento de escuta ao campo de confirmação de senha
+  const confirmPasswordInput = document.getElementById('confirm-password');
+  confirmPasswordInput.addEventListener('input', validateConfirmPassword);
   
   
   
