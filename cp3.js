@@ -112,3 +112,21 @@ function validateLastName() {
   // Adicionar evento de escuta ao campo do segundo nome
 const lastNameInput = document.getElementById('last-name');
 lastNameInput.addEventListener('input', validateLastName);
+
+// Função para validar o campo de e-mail
+function validateEmail() {
+    const emailInput = document.getElementById('email');
+    const emailValue = emailInput.value.trim();
+  
+    removeTooltip(emailInput);
+  
+    if (emailValue === '') {
+      emailInput.classList.add('error');
+      showTooltip(emailInput, 'O campo de e-mail não pode ser vazio.');
+    } else if (emailValue.length < 5 || !emailValue.includes('@')) {
+      emailInput.classList.add('error');
+      showTooltip(emailInput, 'O campo de e-mail deve ter no mínimo 5 caracteres e conter o caractere "@".');
+    } else {
+      emailInput.classList.remove('error');
+    }
+  }
