@@ -50,5 +50,14 @@ function applyDarkModeStyles() {
   });
 }
 
-
+// Função para exibir o balão de dica com mensagem de erro
+function showTooltip(inputElement, errorMessage) {
+    const tooltip = document.createElement('div');
+    tooltip.className = 'tooltip';
+    tooltip.innerText = errorMessage;
+  
+    const parentElement = inputElement.parentNode;
+    parentElement.appendChild(tooltip);
+  }
+  
 
