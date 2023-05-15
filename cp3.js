@@ -69,3 +69,20 @@ function removeTooltip(inputElement) {
     }
   }
 
+// Função para validar o campo do primeiro nome
+function validateFirstName() {
+    const firstNameInput = document.getElementById('first-name');
+    const firstNameValue = firstNameInput.value.trim();
+  
+    removeTooltip(firstNameInput);
+  
+    if (firstNameValue === '') {
+      firstNameInput.classList.add('error');
+      showTooltip(firstNameInput, 'O campo do primeiro nome não pode ser vazio.');
+    } else if (firstNameValue.length < 5) {
+      firstNameInput.classList.add('error');
+      showTooltip(firstNameInput, 'O campo do primeiro nome deve ter no mínimo 5 caracteres.');
+    } else {
+      firstNameInput.classList.remove('error');
+    }
+  }
