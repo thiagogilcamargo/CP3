@@ -51,6 +51,25 @@ function validateEmail() {
 // Adicionar evento de escuta ao campo de e-mail
 const emailInput = document.getElementById('email');
 emailInput.addEventListener('input', validateEmail);
+
+// Função para validar o campo de senha
+function validatePassword() {
+    const passwordInput = document.getElementById('password');
+    const passwordValue = passwordInput.value;
+  
+    if (passwordValue === '') {
+      passwordInput.classList.add('error');
+    } else if (passwordValue.length < 6 || passwordValue.length > 8) {
+      passwordInput.classList.add('error');
+    } else {
+      passwordInput.classList.remove('error');
+    }
+  }
+  
+  // Adicionar evento de escuta ao campo de senha
+  const passwordInput = document.getElementById('password');
+  passwordInput.addEventListener('input', validatePassword);
+  
   
   
   
