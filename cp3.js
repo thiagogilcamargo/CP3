@@ -86,3 +86,7 @@ function validateFirstName() {
       firstNameInput.classList.remove('error');
     }
   }
+
+  // Adicionar evento de escuta ao campo do primeiro nome
+const firstNameInput = document.getElementById('first-name');
+firstNameInput.addEventListener('input', validateFirstName);
