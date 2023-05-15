@@ -141,7 +141,18 @@ function validateForm(event) {
     } else {
       confirmPasswordInput.classList.remove('error');
     }
+  } 
+ 
+  // Verificar se há campos inválidos
+  const invalidInputs = document.querySelectorAll('.error');
+
+  if (invalidInputs.length > 0) {
+    alert('Existem campos inválidos. Por favor, verifique novamente.');
+  } else {
+    // Submeter o formulário
+    form.submit();
   }
+
   
   // Adicionar evento de escuta ao formulário no momento do submit
   const form = document.getElementById('registration-form');
