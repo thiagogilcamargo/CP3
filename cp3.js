@@ -88,6 +88,65 @@ function validateConfirmPassword() {
   // Adicionar evento de escuta ao campo de confirmação de senha
   const confirmPasswordInput = document.getElementById('confirm-password');
   confirmPasswordInput.addEventListener('input', validateConfirmPassword);
+
+  // Função para validar todos os campos do formulário
+function validateForm(event) {
+    event.preventDefault(); // Impede o envio do formulário se houver campos inválidos
+  
+    const firstNameInput = document.getElementById('first-name');
+    const lastNameInput = document.getElementById('last-name');
+    const emailInput = document.getElementById('email');
+    const passwordInput = document.getElementById('password');
+    const confirmPasswordInput = document.getElementById('confirm-password');
+  
+    // Validar o campo do primeiro nome
+    if (firstNameInput.value.trim() === '' || firstNameInput.value.length < 5) {
+      firstNameInput.classList.add('error');
+    } else {
+      firstNameInput.classList.remove('error');
+    }
+  
+    // Validar o campo do segundo nome
+    if (lastNameInput.value.trim() === '' || lastNameInput.value.length < 5) {
+      lastNameInput.classList.add('error');
+    } else {
+      lastNameInput.classList.remove('error');
+    }
+  
+    // Validar o campo de e-mail
+    if (
+      emailInput.value.trim() === '' ||
+      emailInput.value.length < 5 ||
+      !emailInput.value.includes('@')
+    ) {
+      emailInput.classList.add('error');
+    } else {
+      emailInput.classList.remove('error');
+    }
+  
+    // Validar o campo de senha
+    if (
+      passwordInput.value === '' ||
+      passwordInput.value.length < 6 ||
+      passwordInput.value.length > 8
+    ) {
+      passwordInput.classList.add('error');
+    } else {
+      passwordInput.classList.remove('error');
+    }
+  
+    // Validar o campo de confirmação de senha
+    if (confirmPasswordInput.value === '' || confirmPasswordInput.value !== passwordInput.value) {
+      confirmPasswordInput.classList.add('error');
+    } else {
+      confirmPasswordInput.classList.remove('error');
+    }
+  }
+  
+  // Adicionar evento de escuta ao formulário no momento do submit
+  const form = document.getElementById('registration-form');
+  form.addEventListener('submit', validateForm);
+  
   
   
   
