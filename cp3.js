@@ -34,7 +34,23 @@ function validateLastName() {
   const lastNameInput = document.getElementById('last-name');
   lastNameInput.addEventListener('input', validateLastName);
  
-  
+  // Função para validar o campo de e-mail
+function validateEmail() {
+  const emailInput = document.getElementById('email');
+  const emailValue = emailInput.value.trim();
+
+  if (emailValue === '') {
+    emailInput.classList.add('error');
+  } else if (emailValue.length < 5 || !emailValue.includes('@')) {
+    emailInput.classList.add('error');
+  } else {
+    emailInput.classList.remove('error');
+  }
+}
+
+// Adicionar evento de escuta ao campo de e-mail
+const emailInput = document.getElementById('email');
+emailInput.addEventListener('input', validateEmail);
   
   
   
