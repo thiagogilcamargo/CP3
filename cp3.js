@@ -130,3 +130,7 @@ function validateEmail() {
       emailInput.classList.remove('error');
     }
   }
+
+  // Adicionar evento de escuta ao campo de e-mail
+const emailInput = document.getElementById('email');
+emailInput.addEventListener('input', validateEmail)
