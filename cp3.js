@@ -181,3 +181,34 @@ function validateConfirmPassword() {
   // Adicionar evento de escuta ao campo de confirmação de senha
 const confirmPasswordInput = document.getElementById('confirm-password');
 confirmPasswordInput.addEventListener('blur', validateConfirmPassword);
+
+// Função para validar todos os campos do formulário
+function validateForm(event) {
+    event.preventDefault(); // Impede o envio do formulário se houver campos inválidos
+  
+    // Validar o campo do primeiro nome
+    validateFirstName();
+  
+    // Validar o campo do segundo nome
+    validateLastName();
+  
+    // Validar o campo de e-mail
+    validateEmail();
+  
+    // Validar o campo de senha
+    validatePassword();
+  
+    // Validar o campo de confirmação de senha
+    validateConfirmPassword();
+  
+    // Verificar se há campos inválidos novamente após a validação
+    const invalidInputs = document.querySelectorAll('.error');
+  
+    if (invalidInputs.length > 0) {
+      alert('Existem campos inválidos. Por favor, verifique novamente.');
+    } else {
+      // Submeter o formulário
+      form.submit();
+    }
+  }
+  
