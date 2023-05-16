@@ -50,24 +50,42 @@ function applyDarkModeStyles() {
   });
 }
 
-// Função para exibir o balão de dica com mensagem de erro
-function showTooltip(inputElement, errorMessage) {
+// Função para exibir o balão de dica
+function showTooltip(element, message) {
     const tooltip = document.createElement('div');
-    tooltip.className = 'tooltip';
-    tooltip.innerText = errorMessage;
+    tooltip.classList.add('tooltip');
+    tooltip.textContent = message;
+    element.parentNode.appendChild(tooltip);
   
-    const parentElement = inputElement.parentNode;
-    parentElement.appendChild(tooltip);
+    // Define um tempo para esconder o balão de dica após 3 segundos
+    setTimeout(function() {
+      hideTooltip(tooltip);
+    }, 3000);
   }
   
-  // Função para remover o balão de dica
-function removeTooltip(inputElement) {
-    const parentElement = inputElement.parentNode;
-    const tooltip = parentElement.querySelector('.tooltip');
-    if (tooltip) {
-      parentElement.removeChild(tooltip);
+  // Função para esconder o balão de dica
+  function hideTooltip(tooltip) {
+    tooltip.remove();
+  }
+  
+  // Função para validar o campo de senha
+  function validatePassword() {
+    const passwordInput = document.getElementById('password');
+    const passwordValue = passwordInput.value;
+  
+    removeTooltip(passwordInput);
+  
+    if (passwordValue === '') {
+      passwordInput.classList.add('error');
+      showTooltip(passwordInput, 'O campo de senha não pode ser vazio');
+    } else if (passwordValue.length < 6 || passwordValue.length > 8) {
+      passwordInput.classList.add('error');
+      showTooltip(passwordInput, 'O campo de senha deve ter entre 6 e 8 caracteres.');
+    } else {
+      passwordInput.classList.remove('error');
     }
   }
+  
 
 // Função para validar o campo do primeiro nome
 function validateFirstName() {
