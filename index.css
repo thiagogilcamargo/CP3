@@ -1,179 +1,230 @@
 /* Estilos padrão */
 * {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    box-sizing: border-box;
-  }
-  
-  body {
-    font-family: 'Arial', sans-serif;
-    background-image:url('https://i.pinimg.com/originals/27/20/2d/27202db0746e9a95886da864f4e89b79.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
-    padding: 20px;
-  }
-  
-  .checkbox {
-    opacity: 0;
-    position: absolute;
-  }
-  
-  .label {
-    background-color: #111;
-    border-radius: 50px;
-    cursor: pointer;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 5px;
-    position: relative;
-    height: 26px;
-    width: 50px;
-    transform: scale(1.5);
-  }
-  
-  .label .ball {
-    background-color: #fff;
-    border-radius: 50%;
-    position: absolute;
-    top: 2px;
-    left: 2px;
-    height: 22px;
-    width: 22px;
-    transform: translateX(0px);
-    transition: transform 0.2s linear;
-  }
-  
-  .checkbox:checked + .label .ball {
-    transform: translateX(24px);
-  }
-  
-  .fa-moon {
-    color: #f1c40f;
-  }
-  
-  .fa-sun {
-    color: #f39c12;
-  }
-  
-  h1 {
-    text-align: center;
-    color: #333;
-    font-family: 'Nova Fonte', sans-serif;
-    margin-bottom: 20px;
-  }
-  
-  form {
-    max-width: 400px;
-    margin: 0 auto;
-    background-image: url('https://i.pinimg.com/564x/f0/53/87/f05387292a9fe50ae4b52437f5696401.jpg');
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  }
-  
-  label {
-    display: block;
-    margin-bottom: 5px;
-    color: #333;
-    font-weight: bold;
-  }
-  
-  input[type="text"],
-  input[type="email"],
-  input[type="password"] {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-    margin-bottom: 15px;
-    background-color: #eaeaea;
-  }
-  
-  button[type="submit"] {
-    background-color: #4CAF50;
-    color: #fff;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-weight: bold;
-  }
-  
-  button[type="submit"]:hover {
-    background-color: #45a049;
-  }
-  
-  .error {
-    border: 2px solid red;
-  }
-  
-  .error:focus {
-    outline-color: red;
-  }
-  
-  
-  /* Modo noturno */
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  background-image: url('https://i.pinimg.com/originals/27/20/2d/27202db0746e9a95886da864f4e89b79.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 20px;
+}
+
+.checkbox {
+  opacity: 0;
+  position: absolute;
+}
+
+.label {
+  background-color: #111;
+  border-radius: 50px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px;
+  position: relative;
+  height: 26px;
+  width: 50px;
+  transform: scale(1.5);
+}
+
+.label .ball {
+  background-color: #fff;
+  border-radius: 50%;
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  height: 22px;
+  width: 22px;
+  transform: translateX(0px);
+  transition: transform 0.2s linear;
+}
+
+.checkbox:checked + .label .ball {
+  transform: translateX(24px);
+}
+
+.fa-moon {
+  color: #f1c40f;
+}
+
+.fa-sun {
+  color: #f39c12;
+}
+
+h1 {
+  text-align: center;
+  color: #333;
+  font-family: 'Nova Fonte', sans-serif;
+  margin-bottom: 20px;
+}
+
+form {
+  max-width: 400px;
+  margin: 0 auto;
+  background-image: url('https://i.pinimg.com/564x/f0/53/87/f05387292a9fe50ae4b52437f5696401.jpg');
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  color: #333;
+  font-weight: bold;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-bottom: 15px;
+  background-color: #eaeaea;
+}
+
+button[type="submit"] {
+  background-color: #4CAF50;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+button[type="submit"]:hover {
+  background-color: #45a049;
+}
+
+
+
+
+/* Modo noturno */
 
 body.dark {
-    font-family: 'Arial', sans-serif;
-    background-image:url('https://images7.alphacoders.com/561/561443.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
-    padding: 20px;
-  }
-  
-  h1.dark {
-    text-align: center;
-    color: whitesmoke;
-    font-family: 'Nova Fonte', sans-serif;
-    margin-bottom: 20px;
-  }
-  
-  form.dark {
-    max-width: 400px;
-    margin: 0 auto;
-    background-image: url('https://i.pinimg.com/564x/22/5d/76/225d760cb958887a51045ed69a7eabf5.jpg');
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(238, 232, 232, 0.972);
-  }
+  font-family: 'Arial', sans-serif;
+  background-image: url('https://images7.alphacoders.com/561/561443.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 20px;
+}
 
-  label.dark {
-    display: block;
-    margin-bottom: 5px;
-    color: #ffffff;
-    font-weight: bold;
-  }
-  
-  
-  input[type="text"].dark,
-  input[type="email"].dark,
-  input[type="password"].dark {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #0b0808;
-    border-radius: 4px;
-    box-sizing: border-box;
-    margin-bottom: 15px;
-    background-color: #474545;
-  }
-  
-  button[type="submit"].dark {
-    background-color: #710909;
-    color: rgb(0, 0, 0);
-  }
-  
-  button[type="submit"].dark:hover {
-    background-color: #6b0505;
-  }
-  
-  .error.dark {
-    border: 2px solid red;
-  }
-  
-  .error.dark:focus {
-    outline-color: red;
-  }
+h1.dark {
+  text-align: center;
+  color: whitesmoke;
+  font-family: 'Nova Fonte', sans-serif;
+  margin-bottom: 20px;
+}
+
+form.dark {
+  max-width: 400px;
+  margin: 0 auto;
+  background-image: url('https://i.pinimg.com/564x/22/5d/76/225d760cb958887a51045ed69a7eabf5.jpg');
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(238, 232, 232, 0.972);
+}
+
+label.dark {
+  display: block;
+  margin-bottom: 5px;
+  color: #ffffff;
+  font-weight: bold;
+}
+
+input[type="text"].dark,
+input[type="email"].dark,
+input[type="password"].dark {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #0b0808;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-bottom: 15px;
+  background-color: #474545;
+}
+
+button[type="submit"].dark {
+  background-color: #710909;
+  color: rgb(0, 0, 0);
+}
+
+button[type="submit"].dark:hover {
+  background-color: #6b0505;
+}
+
+/* Error and Success */
+.form-control {
+  position: relative;
+}
+
+.form-control input {
+  transition: border-color 0.3s ease;
+}
+
+.form-control.success input {
+  border-color: #2ecc71;
+}
+
+.form-control.error input {
+  border-color: #e74c3c;
+}
+
+.form-control i.fa-check-circle,
+.form-control i.fa-exclamation-circle {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 10px;
+  color: transparent;
+  transition: color 0.3s ease;
+}
+
+.form-control.success i.fa-check-circle {
+  color: #2ecc71;
+}
+
+.form-control.error i.fa-exclamation-circle {
+  color: #e74c3c;
+}
+
+.form-control.error small.error-message {
+  visibility: hidden;
+  color: #e74c3c;
+  display: block;
+  font-size: 12px;
+  margin-top: 0; /* Ajuste a distância vertical conforme necessário */
+  position: absolute;
+  bottom: -20px; /* Ajuste a posição vertical conforme necessário */
+  left: 0;
+  right: 0;
+}
+.form-control.success small.success {
+  visibility: hidden;
+  color: #2ecc71;
+  display: block;
+  font-size: 12px;
+  margin-top: 0; /* Ajuste a distância vertical conforme necessário */
+  position: absolute;
+  bottom: -20px; /* Ajuste a posição vertical conforme necessário */
+  left: 0;
+  right: 0;
+}
+.form-control.error input:focus {
+  border-color: #e74c3c;
+}
+
+.form-control.error input:focus + i.fa-exclamation-circle {
+  color: #e74c3c;
+}
+

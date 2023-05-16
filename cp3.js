@@ -50,187 +50,116 @@ function applyDarkModeStyles() {
   });
 }
 
-// Função para exibir o balão de dica
-function showTooltip(element, message) {
-    const tooltip = document.createElement('div');
-    tooltip.classList.add('tooltip');
-    tooltip.textContent = message;
-    element.parentNode.appendChild(tooltip);
-  
-    // Define um tempo para esconder o balão de dica após 3 segundos
-    setTimeout(function() {
-      hideTooltip(tooltip);
-    }, 3000);
+const form = document.getElementById("form");
+const username = document.getElementById("username");
+const email = document.getElementById("email");
+const password = document.getElementById("password");
+const passwordConfirmation = document.getElementById("password-confirmation");
+
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+
+  checkInputs();
+});
+
+function checkInputs() {
+  const usernameValue = username.value.trim();
+  const emailValue = email.value.trim();
+  const passwordValue = password.value.trim();
+  const passwordConfirmationValue = passwordConfirmation.value.trim();
+
+  if (usernameValue === "") {
+    setErrorFor(username, "O nome de usuário é obrigatório.");
+  } else if (usernameValue.length < 5) {
+    setErrorFor(username, "O nome de usuário precisa ter no mínimo 5 caracteres.");
+  } else {
+    setSuccessFor(username);
   }
   
-  // Função para esconder o balão de dica
-  function hideTooltip(tooltip) {
-    tooltip.remove();
+  if (emailValue === "") {
+    setErrorFor(email, "O email é obrigatório.");
+  } else if (!checkEmail(emailValue)) {
+    setErrorFor(email, "Por favor, insira um email válido.");
+  } else if (emailValue.length < 5) {
+    setErrorFor(email, "O email precisa ter no mínimo 5 caracteres.");
+  } else {
+    setSuccessFor(email);
   }
-  
-  // Função para validar o campo de senha
-  function validatePassword() {
-    const passwordInput = document.getElementById('password');
-    const passwordValue = passwordInput.value;
-  
-    removeTooltip(passwordInput);
-  
-    if (passwordValue === '') {
-      passwordInput.classList.add('error');
-      showTooltip(passwordInput, 'O campo de senha não pode ser vazio');
-    } else if (passwordValue.length < 6 || passwordValue.length > 8) {
-      passwordInput.classList.add('error');
-      showTooltip(passwordInput, 'O campo de senha deve ter entre 6 e 8 caracteres.');
+
+  if (passwordValue === "") {
+    setErrorFor(password, "A senha é obrigatória.");
+  } else if (passwordValue.length < 6 || passwordValue.length > 8) {
+    setErrorFor(password, "A senha precisa ter entre 6 e 8 caracteres.");
+  } else {
+    setSuccessFor(password);
+  }
+
+  if (passwordConfirmationValue === "") {
+    setErrorFor(passwordConfirmation, "A confirmação de senha é obrigatória.");
+  } else if (passwordConfirmationValue !== passwordValue) {
+    setErrorFor(passwordConfirmation, "As senhas não conferem.");
+  } else {
+    setSuccessFor(passwordConfirmation);
+  }
+
+  const formControls = form.querySelectorAll(".form-control");
+  const errorMessages = form.querySelectorAll(".error-message");
+
+  let formIsValid = true;
+
+  formControls.forEach((formControl, index) => {
+    if (formControl.classList.contains("error")) {
+      formIsValid = false;
+      errorMessages[index].style.visibility = "visible";
     } else {
-      passwordInput.classList.remove('error');
+      errorMessages[index].style.visibility = "hidden";
     }
+  });
+
+  if (formIsValid) {
+    console.log("O formulário está 100% válido!");
+  }
+}
+
+function setErrorFor(input, message) {
+    const formControl = input.parentElement;
+    const small = formControl.querySelector("small");
+    const errorIcon = formControl.querySelector(".fa-exclamation-circle");
+    const successIcon = formControl.querySelector(".fa-check-circle");
+  
+    // Adiciona a mensagem de erro
+    small.innerText = message;
+    small.style.color = "#e74c3c"; // Define a cor do texto para vermelho
+  
+    // Adiciona a classe de erro e remove a classe de sucesso
+    formControl.classList.add("error");
+    formControl.classList.remove("success");
+  
+    // Mostra o ícone de erro e esconde o ícone de sucesso
+    errorIcon.style.color = "#e74c3c";
+    successIcon.style.color = "transparent";
+  
+    // Exibe a mensagem de erro
+    small.style.visibility = "visible";
   }
   
-
-// Função para validar o campo do primeiro nome
-function validateFirstName() {
-    const firstNameInput = document.getElementById('first-name');
-    const firstNameValue = firstNameInput.value.trim();
+  function setSuccessFor(input) {
+    const formControl = input.parentElement;
+    const successIcon = formControl.querySelector(".fa-check-circle");
+    const errorIcon = formControl.querySelector(".fa-exclamation-circle");
   
-    removeTooltip(firstNameInput);
+    // Adiciona a classe de sucesso e remove a classe de erro
+    formControl.classList.add("success");
+    formControl.classList.remove("error");
   
-    if (firstNameValue === '') {
-      firstNameInput.classList.add('error');
-      showTooltip(firstNameInput, 'O campo do primeiro nome não pode ser vazio.');
-    } else if (firstNameValue.length < 5) {
-      firstNameInput.classList.add('error');
-      showTooltip(firstNameInput, 'O campo do primeiro nome deve ter no mínimo 5 caracteres.');
-    } else {
-      firstNameInput.classList.remove('error');
-    }
+    // Mostra o ícone de sucesso e esconde o ícone de erro
+    successIcon.style.color = "#2ecc71";
+    errorIcon.style.color = "transparent";
+  
+    // Oculta a mensagem de erro
+    const small = formControl.querySelector("small");
+    small.style.visibility = "hidden";
   }
-
-  // Adicionar evento de escuta ao campo do primeiro nome
-const firstNameInput = document.getElementById('first-name');
-firstNameInput.addEventListener('input', validateFirstName);
-
-// Função para validar o campo do segundo nome
-function validateLastName() {
-    const lastNameInput = document.getElementById('last-name');
-    const lastNameValue = lastNameInput.value.trim();
-  
-    removeTooltip(lastNameInput);
-  
-    if (lastNameValue === '') {
-      lastNameInput.classList.add('error');
-      showTooltip(lastNameInput, 'O campo do segundo nome não pode ser vazio.');
-    } else if (lastNameValue.length < 5) {
-      lastNameInput.classList.add('error');
-      showTooltip(lastNameInput, 'O campo do segundo nome deve ter no mínimo 5 caracteres.');
-    } else {
-      lastNameInput.classList.remove('error');
-    }
+function checkEmail(email) {
+    return /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(email);
   }
-
-  // Adicionar evento de escuta ao campo do segundo nome
-const lastNameInput = document.getElementById('last-name');
-lastNameInput.addEventListener('input', validateLastName);
-
-// Função para validar o campo de e-mail
-function validateEmail() {
-    const emailInput = document.getElementById('email');
-    const emailValue = emailInput.value.trim();
-  
-    removeTooltip(emailInput);
-  
-    if (emailValue === '') {
-      emailInput.classList.add('error');
-      showTooltip(emailInput, 'O campo de e-mail não pode ser vazio.');
-    } else if (emailValue.length < 5 || !emailValue.includes('@')) {
-      emailInput.classList.add('error');
-      showTooltip(emailInput, 'O campo de e-mail deve ter no mínimo 5 caracteres e conter o caractere "@".');
-    } else {
-      emailInput.classList.remove('error');
-    }
-  }
-
-  // Adicionar evento de escuta ao campo de e-mail
-const emailInput = document.getElementById('email');
-emailInput.addEventListener('input', validateEmail)
-
-// Função para validar o campo de senha
-function validatePassword() {
-    const passwordInput = document.getElementById('password');
-    const passwordValue = passwordInput.value;
-  
-    removeTooltip(passwordInput);
-  
-    if (passwordValue === '') {
-      passwordInput.classList.add('error');
-      showTooltip(passwordInput, 'O campo de senha não pode ser vazio.');
-    } else if (passwordValue.length < 6 || passwordValue.length > 8) {
-      passwordInput.classList.add('error');
-      showTooltip(passwordInput, 'O campo de senha deve ter entre 6 e 8 caracteres.');
-    } else {
-      passwordInput.classList.remove('error');
-      removeTooltip(passwordInput);
-    }
-  }
-
-  // Adicionar evento de escuta ao campo de senha
-const passwordInput = document.getElementById('password');
-passwordInput.addEventListener('input', validatePassword);
-
-// Função para validar o campo de confirmação de senha
-function validateConfirmPassword() {
-    const passwordInput = document.getElementById('password');
-    const confirmPasswordInput = document.getElementById('confirm-password');
-    const confirmPasswordValue = confirmPasswordInput.value;
-  
-    removeTooltip(confirmPasswordInput);
-  
-    if (confirmPasswordValue === '') {
-      confirmPasswordInput.classList.add('error');
-      showTooltip(confirmPasswordInput, 'O campo de confirmação de senha não pode ser vazio.');
-    } else if (confirmPasswordValue !== passwordInput.value) {
-      confirmPasswordInput.classList.add('error');
-      showTooltip(confirmPasswordInput, 'A senha e a confirmação de senha devem ser iguais.');
-    } else {
-      confirmPasswordInput.classList.remove('error');
-      removeTooltip(confirmPasswordInput);
-    }
-  }
-
-  // Adicionar evento de escuta ao campo de confirmação de senha
-const confirmPasswordInput = document.getElementById('confirm-password');
-confirmPasswordInput.addEventListener('blur', validateConfirmPassword);
-
-// Função para validar todos os campos do formulário
-function validateForm(event) {
-    event.preventDefault(); // Impede o envio do formulário se houver campos inválidos
-  
-    // Validar o campo do primeiro nome
-    validateFirstName();
-  
-    // Validar o campo do segundo nome
-    validateLastName();
-  
-    // Validar o campo de e-mail
-    validateEmail();
-  
-    // Validar o campo de senha
-    validatePassword();
-  
-    // Validar o campo de confirmação de senha
-    validateConfirmPassword();
-  
-    // Verificar se há campos inválidos novamente após a validação
-    const invalidInputs = document.querySelectorAll('.error');
-  
-    if (invalidInputs.length > 0) {
-      alert('Existem campos inválidos. Por favor, verifique novamente.');
-    } else {
-      // Submeter o formulário
-      form.submit();
-    }
-  }
-
-  // Adicionar evento de escuta ao formulário no momento do submit
-const form = document.getElementById('registration-form');
-form.addEventListener('submit', validateForm);
-  
